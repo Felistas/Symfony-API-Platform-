@@ -21,33 +21,9 @@ $ cd demo-app
 Download the compressed .tar.gz distribution then extract it inside our working directory then run the commands below:
 
 ```
+$ cd api-platform-2.4.5
 $ docker-compose pull
 $ docker-compose up -d
 ```
-The `docker-compose pull` downloads the  images specified in the `docker-compose.yml` file. In order to start the containers, we run `docker-compose up -d`. The `-d` flag runs the containers in detach mode meaning they run in the background. In order to view the container logs, you can run this command  `docker-compose logs -f`. In your browser, paste the following urls `http://localhost` in order to view the application. 
+The `docker-compose pull` downloads the all images specified in the `docker-compose.yml` file. In order to start the containers, we run `docker-compose up -d`. The `-d` flag runs the containers in detach mode meaning they run in the background. In order to view the container logs, you can run this command  `docker-compose logs -f` on a separate terminal. In your browser, paste the following url `http://localhost` in order to view the application.
 You should expect to view the following screens:
-
-
-
- ## Design and Create Entities
- - Create ToDo entities that will create the relevant tables for us in the database.
- - Inspect routes created
- 
- ## Database Setup
- - Initialize the database.
- - Load fake data into the db.
- 
- ## Add CRUD Logic
-  -  Add logic to support the different CRUD operations in the app including data validation. i.e
-     - Add a ToDo list
-     - Get a ToDo list
-     - Edit a ToDo list
-     - Delete a ToDo list
-  ## Test The Application
-  - Run different tests on the API platform UI from the browser.
-  
- ## Summary
- In this tutorial we have learnt how to create a simple CRUD API with symfony 4 and API platform.
-
-
-
