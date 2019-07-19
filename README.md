@@ -192,7 +192,7 @@ Go ahead and refresh your browser with the API dashboard and now we have the CRU
 
 Let’s try performing some CRUD operations to confirm if everything works as expected. 
 Collapse the POST method and try creating a new bucketlist as shown below by clicking on on the `Try out` button:
-Copy the json below under the description text area and click `.
+Copy the json below under the description text area and click `Execute`.
 ```
 {
   "name": "Sky Diving",
@@ -217,6 +217,21 @@ Suppose a user wants to retrieve a resource that doesn't exist, for example a bu
 
 ![not found bucketlist](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/resource_not_found.png)
 
+Deleting a bucketlist is also straight forward. Collapse the DELETE `/bucket_lists/{id}` endpoint and enter the id of the resource you would like to delete. If that resource does not exists, a status code of 404 is returned. 
 
+![delete bucketlist](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/delete_bucketlist.png)
 
+The final part would be editing a particular bucketlist. Collapse the PUT `/bucket_lists/{id}` endpoint and enter the following json in the resulting text area after clicking `Try out` then click `Execute`. 
+
+```
+{
+  "name": "test bucketlist",
+  "description": "testing updating the bucketlist",
+  "updatedAt": "2019-07-19T15:35:44.772Z",
+  "createdAt": "2019-07-19T14:35:44.772Z"
+}
+```
+
+## Conclusion
+In this tutorial, we’ve learnt how to create a CRUD Api with API platform. As you have seen, it's pretty straight forward with most of the validation already done for you. In the next article, I will talk about data validation and serialization, creating custom endpoints and how to add pagination to your API. I would love to hear from you! You can reach me on [Twitter](https://twitter.com/WaceeraN),  [LinkedIn](https://www.linkedin.com/in/felistas-ngumi-b6063192/LinkedIn) or drop me an [email](felistaswaceera@gmail.com). Happy hacking!
 
