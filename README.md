@@ -32,10 +32,13 @@ Api Platform Homepage
 
 ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/Screen%20Shot%202019-07-19%20at%2015.14.24.png)
 
-Api Platform Dashboard `(http://localhost:8080/)`
+Api Platform Dashboard 
+Click the API either `HTTP` or `HTTPS` to view the screen below or navigate to `http://localhost:8080/`
 
 ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/Screen%20Shot%202019-07-19%20at%2015.16.20.png)
 
-Api Platform Admin`(https://localhost:444/#/greetings)`
+Api Platform Admin
+To view the Admin, Click the Admin button in the dashboard or navigate to `https://localhost:444/#/greetings`
 
 ![Api platform admin dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/Screen%20Shot%202019-07-19%20at%2015.16.28.png)
+
