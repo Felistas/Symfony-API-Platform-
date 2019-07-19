@@ -190,4 +190,6 @@ class BucketList
 
 Go ahead and refresh your browser with the API dashboard and now we have the CRUD endpoints created. How cool is that?
 
+![Postico](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/bucket_list.png)
+
 
