@@ -70,7 +70,7 @@ use Doctrine\ORM\Mapping as ORM;
 class BucketList
 {
    /**
-    * @var int The id of one bucketlist.
+    * @var int The id of a bucketlist.
     *
     * @ORM\Id
     * @ORM\GeneratedValue
@@ -121,4 +121,73 @@ Alternatively, you can:
 3. Run `php bin/console doctrine:schema:update --force` to update the database
 
 Login to your to your prefered Postgres client and confirm if the table has been created. I use Postico, here is my table and all the fields have been created too :-)
+
+![Postico](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/Screen%20Shot%202019-07-19%20at%2016.02.13.png)
+
+After confirming the models have been created, and now we can persist data, its now time to create endpoints with CRUD operations. In order to do that, we need to mark the class we created using the `@ApiResource` annotation. So our class will look like:
+
+```
+<?php
+
+namespace App\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+*
+* @ApiResource
+* @ORM\Entity
+*/
+class BucketList
+{
+   /**
+    * @var int The id of a bucketlist.
+    *
+    * @ORM\Id
+    * @ORM\GeneratedValue
+    * @ORM\Column(type="integer")
+    */
+   private $id;
+
+   /**
+    * @var string The name of the bucketlist.
+    *
+    * @ORM\Column(nullable=true)
+    */
+   public $name;
+
+   /**
+   * @var string The description of the bucketlist.
+   *
+   * @ORM\Column(type="text")
+   */
+   public $description;
+
+   /**
+    * @var null When the bucketlist was updated.
+    *
+    * @ORM\Column(nullable=true)
+    */
+   public $updatedAt;
+
+   /**
+    * @var \DateTimeInterface When the bucketlist was created.
+    *
+    * @ORM\Column(type="datetime")
+    */
+   public $createdAt;
+
+   public function getId(): ?int
+   {
+       return $this->id;
+   }
+}
+
+
+```
+
+Go ahead and refresh your browser with the API dashboard and now we have the CRUD endpoints created. How cool is that?
+
 
