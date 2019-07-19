@@ -201,14 +201,22 @@ Copy the json below under the description text area and click `.
 }
 ```
 A new bucketlist should now be created and persisted to the database. The response code returned is 201 (represents that a new resource has been created).
-# Add post image
+
+![add bucketlist](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/add_a_bucketlist.png)
+
 Let's utilize the GET method to retrieve the bucketlist created. 
 Collapse the GET `/bucket_lists` endpoint and click on `Execute` to retrieve the list of bucket lists you have created. 
-# Add get image
+
+![all bucketlists](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/get_all_bucketlists.png)
+
 In order to get a particular bucketlist using it's id, collapse the GET `/bucket_lists/{id}` endpoint and click on `try out`. In the resulting dashboard, enter the `id` of the bucketlist of the id you would want to retrieve. In my case, I have retrieved the bucket list with id 4.
+
+![get one bucketlist](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/get_one_bucketlist.png)
+
 Suppose a user wants to retrieve a resource that doesn't exist, for example a bucketlist with 9. The resulting status code is 404 with the error message, `Not Found`. Api Platform takes care of such validations out of the box. 
-# Add get image for all bucketlists
-# Add get image for a bucketlist that does not exist.
+
+![not found bucketlist](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/resource_not_found.png)
+
 
 
 
