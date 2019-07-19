@@ -231,6 +231,7 @@ The final part would be editing a particular bucketlist. Collapse the PUT `/buck
   "createdAt": "2019-07-19T14:35:44.772Z"
 }
 ```
+![edit bucketlist](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/edit_bucketlist.png)
 
 ## Conclusion
 In this tutorial, we’ve learnt how to create a CRUD Api with API platform. As you have seen, it's pretty straight forward with most of the validation already done for you. In the next article, I will talk about data validation and serialization, creating custom endpoints and how to add pagination to your API. I would love to hear from you! You can reach me on [Twitter](https://twitter.com/WaceeraN),  [LinkedIn](https://www.linkedin.com/in/felistas-ngumi-b6063192/LinkedIn) or drop me an [email](felistaswaceera@gmail.com). Happy hacking!
