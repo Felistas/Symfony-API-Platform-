@@ -59,7 +59,6 @@ Now, let's create our first model in, `api/src/Entity/BucketList.php`. Add the f
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -131,7 +130,6 @@ After confirming the models have been created, and now we can persist data, its 
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -154,7 +152,7 @@ class BucketList
    /**
     * @var string The name of the bucketlist.
     *
-    * @ORM\Column(nullable=true)
+    * @ORM\Column(type="text")
     */
    public $name;
 
@@ -191,5 +189,26 @@ class BucketList
 Go ahead and refresh your browser with the API dashboard and now we have the CRUD endpoints created. How cool is that?
 
 ![Postico](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/bucket_list.png)
+
+Let’s try performing some CRUD operations to confirm if everything works as expected. 
+Collapse the POST method and try creating a new bucketlist as shown below by clicking on on the `Try out` button:
+Copy the json below under the description text area and click `.
+```
+{
+  "name": "Sky Diving",
+  "description": "Sky dive in Dubai with Keisha",
+  "createdAt": "2019-07-17T22:24:59.525Z"
+}
+```
+A new bucketlist should now be created and persisted to the database. The response code returned is 201 (represents that a new resource has been created).
+# Add post image
+Let's utilize the GET method to retrieve the bucketlist created. 
+Collapse the GET `/bucket_lists` endpoint and click on `Execute` to retrieve the list of bucket lists you have created. 
+# Add get image
+In order to get a particular bucketlist using it's id, collapse the GET `/bucket_lists/{id}` endpoint and click on `try out`. In the resulting dashboard, enter the `id` of the bucketlist of the id you would want to retrieve. In my case, I have retrieved the bucket list with id 4.
+Suppose a user wants to retrieve a resource that doesn't exist, for example a bucketlist with 9. The resulting status code is 404 with the error message, `Not Found`. Api Platform takes care of such validations out of the box. 
+# Add get image for all bucketlists
+# Add get image for a bucketlist that does not exist.
+
 
 
