@@ -33,12 +33,92 @@ Api Platform Homepage
 ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/Screen%20Shot%202019-07-19%20at%2015.14.24.png)
 
 Api Platform Dashboard 
+
 Click the API either `HTTP` or `HTTPS` to view the screen below or navigate to `http://localhost:8080/`
 
 ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/Screen%20Shot%202019-07-19%20at%2015.16.20.png)
 
 Api Platform Admin
+
 To view the Admin, Click the Admin button in the dashboard or navigate to `https://localhost:444/#/greetings`
 
 ![Api platform admin dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/Screen%20Shot%202019-07-19%20at%2015.16.28.png)
+
+We are all set to start developing now :-)
+
+
+
+## Creating BucketList Models
+
+First let’s remove the Greeting model since we will not be needing it.  Navigate to `api/src/Entity/Greeting.php` and delete the file. Your Api dashboard will now be empty once you reload your browser. 
+ 
+Now, let's create our first model in, `api/src/Entity/BucketList.php`. Add the following lines of code:
+
+```
+<?php
+
+namespace App\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+*
+*
+* @ORM\Entity
+*/
+class BucketList
+{
+   /**
+    * @var int The id of one bucketlist.
+    *
+    * @ORM\Id
+    * @ORM\GeneratedValue
+    * @ORM\Column(type="integer")
+    */
+   private $id;
+
+   /**
+    * @var string The name of the bucketlist.
+    *
+    * @ORM\Column(nullable=true)
+    */
+   public $name;
+
+    /**
+    * @var string The description of the bucketlist.
+    *
+    * @ORM\Column(type="text")
+    */
+   public $description;
+
+     /**
+    * @var \DateTimeInterface When the bucketlist was updated.
+    *
+    * @ORM\Column(nullable=true)
+    */
+   public $updatedAt;
+
+   /**
+    * @var \DateTimeInterface When the bucketlist was created.
+    *
+    * @ORM\Column(type="datetime")
+    */
+   public $createdAt;
+
+   public function getId(): ?int
+   {
+       return $this->id;
+   }
+}
+```
+
+Next, we need to exec into the php container and run migrations in order to update the database with the new models and API platform with the new model created. In order to do that, run  `docker-compose exec php bin/console doctrine:schema:update --force`. 
+
+Alternatively, you can:
+1. List the docker containers in your terminal by typing `docker ps` in order to grab the name of container.
+2. Exec into the php container by `docker exec -it <container-name> /bin/sh`
+3. Run `php bin/console doctrine:schema:update --force` to update the database
+
+Login to your to your prefered Postgres client and confirm if the table has been created. I use Postico, here is my table and all the fields have been created too :-)
 
