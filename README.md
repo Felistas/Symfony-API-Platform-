@@ -1,10 +1,9 @@
 # HOW TO BUILD A CRUD REST API WITH API PLATFORM AND SYMFONY 4.
-A simple application to illustrate how to create CRUD API's with Symfony 4 and API Platform
 
 ## Introduction
 As per the official documentation, Api platform is a “powerful but easy to use full stack framework dedicated to API driven projects”. Api platform helps developers significantly speed up their development process, building complex and high performance hypermedia driven APIs. 
-It ships with Symfony 4, Doctrine ORM, a dynamic Javascript admin created with React and React Admin, a progressive web application skeleton and a docker setup providing Nginx servers to run the API and JavaScript apps, Varnish Cache server and Helm Chart to deploy the API in a Kubernetes cluster.Oh and did i mention that API platform also supports OpenAPI natively for your project documentation? So why not give it a try!
-In this tutorial, I will take you through how to create a simple bucket list API with CRUD 
+It ships with Symfony 4, the Doctrine ORM, a dynamic Javascript admin created with React and React Admin, a progressive web application skeleton and a docker setup providing Nginx servers to run the API and JavaScript apps. It also ships witn Varnish Cache server and Helm Chart to help deploy the API in a Kubernetes cluster. Oh and did I mention that API platform also supports OpenAPI natively for your project documentation? So why not give it a try!
+In this tutorial, I will take you through how to create a simple bucket list API with CRUD operations.
 
 ## Prerequisites
 1. PHP - Version 7.0 or higher.
@@ -25,7 +24,7 @@ $ cd api-platform-2.4.5
 $ docker-compose pull
 $ docker-compose up -d
 ```
-The `docker-compose pull` downloads the all images specified in the `docker-compose.yml` file. In order to start the containers, we run `docker-compose up -d`. The `-d` flag runs the containers in detach mode meaning they run in the background. In order to view the container logs, you can run this command  `docker-compose logs -f` on a separate terminal. In your browser, paste the following url `http://localhost` in order to view the application.
+The `docker-compose pull` downloads the all images specified in the `docker-compose.yml` file. In order to start the containers, run `docker-compose up -d`. The `-d` flag runs the containers in detach mode meaning they run in the background. In order to view the container logs, you can run this command  `docker-compose logs -f` in a separate terminal. In your browser, paste the following url `http://localhost` in order to view the application.
 You should expect to view the following screens:
 
 ##### Api Platform Homepage
