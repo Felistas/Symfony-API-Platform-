@@ -11,20 +11,21 @@ In this tutorial, I will take you through how to create a simple bucket list API
 3. Postgres
 
 ## Getting Started
- Follow the instructions below to setup your development environment:
+Follow the instructions below to setup your development environment:
 
 ```
 $ mkdir demo-app
 $ cd demo-app
 ```
-Download the compressed .tar.gz distribution then extract it inside our working directory then run the commands below:
-
+Download the compressed `.tar.gz` distribution. Then extract it inside of our working directory and run the commands below:
 ```
 $ cd api-platform-2.4.5
 $ docker-compose pull
 $ docker-compose up -d
 ```
-The `docker-compose pull` downloads the all images specified in the `docker-compose.yml` file. In order to start the containers, run `docker-compose up -d`. The `-d` flag runs the containers in detach mode meaning they run in the background. In order to view the container logs, you can run this command  `docker-compose logs -f` in a separate terminal. In your browser, paste the following url `http://localhost` in order to view the application.
+The `docker-compose pull` command downloads all images specified in the `docker-compose.yml` file. In order to start the containers, run `docker-compose up -d`. The `-d` flag runs the containers in detached mode, meaning they run in the background. In order to view the container logs, you can run this command  `docker-compose logs -f` in a separate terminal.
+
+In your browser, paste the following url `http://localhost` in order to view the application.
 You should expect to view the following screens:
 
 ##### Api Platform Homepage
@@ -33,7 +34,7 @@ You should expect to view the following screens:
 
 ##### Api Platform Dashboard 
 
-Click the API either `HTTP` or `HTTPS` to view the screen below or navigate to `http://localhost:8080/`
+Click the API, either `HTTP` or `HTTPS` to view the screen below or navigate to `http://localhost:8080/`
 
 ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/Screen%20Shot%202019-07-19%20at%2015.16.20.png)
 
@@ -43,15 +44,14 @@ To view the Admin, Click the Admin button in the dashboard or navigate to `https
 
 ![Api platform admin dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/Screen%20Shot%202019-07-19%20at%2015.16.28.png)
 
-We are all set to start developing now :-)
-
+We are all set to start developing now
 
 
 ## Creating BucketList Models
 
-First let’s remove the Greeting model since we will not be needing it.  Navigate to `api/src/Entity/Greeting.php` and delete the file. Your Api dashboard will now be empty once you reload your browser. 
+First, let’s remove the Greeting model since we will not be needing it.  Navigate to `api/src/Entity/Greeting.php` and delete the file. Your API dashboard will now be empty once you reload your browser. 
  
-Now, let's create our first model in, `api/src/Entity/BucketList.php`. Add the following lines of code:
+Now, let's create our first model in `api/src/Entity/BucketList.php`. This model will be responsible for storing the items of our bucketlist. Add the following lines of code:
 
 ```
 <?php
@@ -111,18 +111,18 @@ class BucketList
 }
 ```
 
-Next, we need to exec into the php container and run migrations in order to update the database with the new models and API platform with the new model created. In order to do that, run  `docker-compose exec php bin/console doctrine:schema:update --force`. 
+Next, we need to navigate into the PHP container and run migrations in order to update the database with the new created models. In order to do that, run `docker-compose exec php bin/console doctrine:schema:update --force`.
 
 Alternatively, you can:
 1. List the docker containers in your terminal by typing `docker ps` in order to grab the name of container.
-2. Exec into the php container by `docker exec -it <container-name> /bin/sh`
+2. Exec into the PHP container by running `docker exec -it <container-name> /bin/sh`
 3. Run `php bin/console doctrine:schema:update --force` to update the database
 
-Login to your to your prefered Postgres client and confirm if the table has been created. I use Postico, here is my table and all the fields have been created too :-)
+Log into your prefered Postgres client and confirm if the table has been created. Here is my table and all the fields have been created.
 
 ![Postico](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/Screen%20Shot%202019-07-19%20at%2016.02.13.png)
 
-After confirming the models have been created, and now we can persist data, its now time to create endpoints with CRUD operations. In order to do that, we need to mark the class we created using the `@ApiResource` annotation. So our class will look like:
+After confirming the models have been created, it's now time to create endpoints with CRUD operations. In order to do that, we need to mark the class we created using the `@ApiResource` annotation. Our class will look like:
 
 ```
 <?php
@@ -181,17 +181,14 @@ class BucketList
        return $this->id;
    }
 }
-
-
 ```
 
-Go ahead and refresh your browser with the API dashboard and now we have the CRUD endpoints created. How cool is that?
+Go ahead and refresh your browser with the API dashboard and you'll see that we have the CRUD endpoints created. How cool is that?
 
 ![Postico](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/bucket_list.png)
 
-Let’s try performing some CRUD operations to confirm if everything works as expected. 
-Collapse the POST method and try creating a new bucketlist as shown below by clicking on on the `Try out` button:
-Copy the json below under the description text area and click `Execute`.
+Let’s try performing some CRUD operations to confirm if everything works as expected. Expand the POST method and try creating a new bucketlist as shown below by clicking on the `Try out` button:
+Copy the JSON below under the description text area and click `Execute`.
 ```
 {
   "name": "Sky Diving",
@@ -199,16 +196,15 @@ Copy the json below under the description text area and click `Execute`.
   "createdAt": "2019-07-17T22:24:59.525Z"
 }
 ```
-A new bucketlist should now be created and persisted to the database. The response code returned is 201 (represents that a new resource has been created).
+A new bucketlist should now be created and persisted to the database. The response code returned is 201 (representing that a new resource has been created).
 
 ![add bucketlist](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/add_a_bucketlist.png)
 
-Let's utilize the GET method to retrieve the bucketlist created. 
-Collapse the GET `/bucket_lists` endpoint and click on `Execute` to retrieve the list of bucket lists you have created. 
+Let's utilize the GET method to retrieve the bucketlist created. Expand the GET `/bucket_lists` endpoint and click on `Execute` to retrieve the list of bucket lists you have created. 
 
 ![all bucketlists](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/get_all_bucketlists.png)
 
-In order to get a particular bucketlist using it's id, collapse the GET `/bucket_lists/{id}` endpoint and click on `try out`. In the resulting dashboard, enter the `id` of the bucketlist of the id you would want to retrieve. In my case, I have retrieved the bucket list with id 4.
+In order to get a particular bucketlist using it's id, expand the GET `/bucket_lists/{id}` endpoint and click on `try out`. In the resulting dashboard, enter the `id` of the bucketlist of the id you would want to retrieve. In my case, I have retrieved the bucket list with id 4.
 
 ![get one bucketlist](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/get_one_bucketlist.png)
 
@@ -216,11 +212,11 @@ Suppose a user wants to retrieve a resource that doesn't exist, for example a bu
 
 ![not found bucketlist](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/resource_not_found.png)
 
-Deleting a bucketlist is also straight forward. Collapse the DELETE `/bucket_lists/{id}` endpoint and enter the id of the resource you would like to delete. If that resource does not exists, a status code of 404 is returned. 
+Deleting a bucketlist is also straight forward. Expand the DELETE `/bucket_lists/{id}` endpoint and enter the id of the resource you would like to delete. If that resource does not exists, a status code of 404 is returned. 
 
 ![delete bucketlist](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/delete_bucketlist.png)
 
-The final part would be editing a particular bucketlist. Collapse the PUT `/bucket_lists/{id}` endpoint and enter the following json in the resulting text area after clicking `Try out` then click `Execute`. 
+The final part would be editing a particular bucketlist. Expand the PUT `/bucket_lists/{id}` endpoint and enter the following JSON in the resulting text area after clicking `Try out` then click `Execute`. 
 
 ```
 {
@@ -233,5 +229,5 @@ The final part would be editing a particular bucketlist. Collapse the PUT `/buck
 ![edit bucketlist](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/edit_bucketlist.png)
 
 ## Conclusion
-In this tutorial, we’ve learnt how to create a CRUD Api with API platform. As you have seen, it's pretty straight forward with most of the validation already done for you. In the next article, I will talk about data validation and serialization, creating custom endpoints and how to add pagination to your API. I would love to hear from you! You can reach me on [Twitter](https://twitter.com/WaceeraN),  [LinkedIn](https://www.linkedin.com/in/felistas-ngumi-b6063192/LinkedIn) or drop me an [email](felistaswaceera@gmail.com). Happy hacking!
+In this tutorial we learned how to create a CRUD API with API platform. As you have seen, it's pretty straight forward with most of the validation already done for you. In the next article, I will talk about data validation and serialization, creating custom endpoints and how to add pagination to your API. I would love to hear from you! You can reach me on [Twitter](https://twitter.com/WaceeraN),  [LinkedIn](https://www.linkedin.com/in/felistas-ngumi-b6063192/LinkedIn) or drop me an [email](felistaswaceera@gmail.com). Happy hacking!
 
