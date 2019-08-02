@@ -1,9 +1,10 @@
 # HOW TO BUILD A CRUD REST API WITH API PLATFORM AND SYMFONY 4.
 
 ## Introduction
-As per the official documentation, [API platform](https://api-platform.com/) is a “powerful but easy to use full-stack framework dedicated to API driven projects”. API platform helps developers significantly speed up their development process, building complex and high performance, hypermedia-driven APIs. 
-It ships with Symfony 4, the Doctrine ORM, a dynamic Javascript admin created with React, and React Admin and a progressive web application skeleton. It also includes a Docker setup for providing Nginx servers to run the API and JavaScript apps. It also ships with Varnish Cache server and Helm Chart to help deploy the API in a Kubernetes cluster. Most inspiring is the ability of API platform to natively generate project documentation with support of OpenAPI!
-x
+As per the official documentation, [API platform](https://api-platform.com/) is a “powerful but easy to use full-stack framework dedicated to API driven projects”. API platform helps developers significantly speed up their development process, building complex and high performance, hypermedia-driven APIs.
+
+It ships with Symfony 4, the Doctrine ORM, a dynamic Javascript admin created with React, and React Admin, Varnish Cache server, Helm Chart to help deploy the API in a Kubernetes cluster and a Progressive Web Application skeleton. It also includes a Docker setup for providing Nginx servers to run the API and JavaScript apps. Most inspiring is the ability of API platform to natively generate project documentation with support of OpenAPI!
+
 In this tutorial, I will take you through how to create a simple bucket list API with CRUD operations.
 
 
