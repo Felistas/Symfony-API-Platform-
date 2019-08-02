@@ -1,10 +1,11 @@
 # HOW TO BUILD A CRUD REST API WITH API PLATFORM AND SYMFONY 4.
 
 ## Introduction
-As per the official documentation, [API platform](https://api-platform.com/) is a “powerful but easy to use full stack framework dedicated to API driven projects”. API platform helps developers significantly speed up their development process, building complex and high performance, hypermedia-driven APIs. 
-It ships with Symfony 4, the Doctrine ORM, a dynamic Javascript admin created with React, and React Admin and a progressive web application skeleton. It also includes a Docker setup for providing Nginx servers to run the API and JavaScript apps. It also ships witn Varnish Cache server and Helm Chart to help deploy the API in a Kubernetes cluster. Most inspiring is the ability of API platform to natively generate project documentation with support of OpenAPI!
+As per the official documentation, [API platform](https://api-platform.com/) is a “powerful but easy to use full-stack framework dedicated to API driven projects”. API platform helps developers significantly speed up their development process, building complex and high performance, hypermedia-driven APIs. 
+It ships with Symfony 4, the Doctrine ORM, a dynamic Javascript admin created with React, and React Admin and a progressive web application skeleton. It also includes a Docker setup for providing Nginx servers to run the API and JavaScript apps. It also ships with Varnish Cache server and Helm Chart to help deploy the API in a Kubernetes cluster. Most inspiring is the ability of API platform to natively generate project documentation with support of OpenAPI!
 x
 In this tutorial, I will take you through how to create a simple bucket list API with CRUD operations.
+
 
 ## Prerequisites
 1. PHP - Version 7.0 or higher.
@@ -41,7 +42,7 @@ Click the API, either `HTTP` or `HTTPS` to view the screen below or navigate to 
 
 ##### Api Platform Admin
 
-To view the Admin, Click the Admin button in the dashboard or navigate to `https://localhost:444/#/greetings`
+To view the Admin, click the Admin button in the dashboard or navigate to `https://localhost:444/#/greetings`
 
 ![Api platform admin dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/Screen%20Shot%202019-07-19%20at%2015.16.28.png)
 
@@ -112,14 +113,14 @@ class BucketList
 }
 ```
 
-Next, we need to navigate into the PHP container and run migrations in order to update the database with the new created models. In order to do that, run `docker-compose exec php bin/console doctrine:schema:update --force`.
+Next, we need to navigate into the PHP container and run migrations in order to update the database with the newly created models. In order to do that, run `docker-compose exec php bin/console doctrine:schema:update --force`.
 
 Alternatively, you can:
-1. List the docker containers in your terminal by typing `docker ps` in order to grab the name of container.
+1. List the docker containers in your terminal by typing `docker ps` in order to grab the name of the container.
 2. Exec into the PHP container by running `docker exec -it <container-name> /bin/sh`
 3. Run `php bin/console doctrine:schema:update --force` to update the database
 
-Log into your prefered Postgres client and confirm if the table has been created. Here is my table and all the fields have been created.
+Log into your preferred Postgres client and confirm if the table has been created. Here is my table and all the fields have been created.
 
 ![Postico](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/Screen%20Shot%202019-07-19%20at%2016.02.13.png)
 
@@ -205,15 +206,15 @@ Let's utilize the GET method to retrieve the bucketlist created. Expand the GET 
 
 ![all bucketlists](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/get_all_bucketlists.png)
 
-In order to get a particular bucketlist using it's id, expand the GET `/bucket_lists/{id}` endpoint and click on `try out`. In the resulting dashboard, enter the `id` of the bucketlist of the id you would want to retrieve. In my case, I have retrieved the bucket list with id 4.
+In order to get a particular bucketlist using its id, expand the GET `/bucket_lists/{id}` endpoint and click on `try out`. In the resulting dashboard, enter the `id` of the bucketlist of the id you would want to retrieve. In my case, I have retrieved the bucket list with id 4.
 
 ![get one bucketlist](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/get_one_bucketlist.png)
 
-Suppose a user wants to retrieve a resource that doesn't exist, for example a bucketlist with 9. The resulting status code is 404 with the error message, `Not Found`. Api Platform takes care of such validations out of the box. 
+Suppose a user wants to retrieve a resource that doesn't exist, for example, a bucketlist with 9. The resulting status code is 404 with the error message, `Not Found`. API Platform takes care of such validations out of the box. 
 
 ![not found bucketlist](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/resource_not_found.png)
 
-Deleting a bucketlist is also straight forward. Expand the DELETE `/bucket_lists/{id}` endpoint and enter the id of the resource you would like to delete. If that resource does not exists, a status code of 404 is returned. 
+Deleting a bucketlist is also straight forward. Expand the DELETE `/bucket_lists/{id}` endpoint and enter the id of the resource you would like to delete. If that resource does not exist, a status code of 404 is returned. 
 
 ![delete bucketlist](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/delete_bucketlist.png)
 
@@ -230,5 +231,5 @@ The final part would be editing a particular bucketlist. Expand the PUT `/bucket
 ![edit bucketlist](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-1/edit_bucketlist.png)
 
 ## Conclusion
-In this tutorial we learned how to create a CRUD API with API platform. As you have seen, it's pretty straight forward with most of the validation already done for you. In the next article, I will talk about data validation and serialization, creating custom endpoints and how to add pagination to your API. I would love to hear from you! You can reach me on [Twitter](https://twitter.com/WaceeraN),  [LinkedIn](https://www.linkedin.com/in/felistas-ngumi-b6063192/LinkedIn) or drop me an [email](felistaswaceera@gmail.com). Happy hacking!
+In this tutorial, we learned how to create a CRUD API with API platform. As you have seen, it's pretty straight forward with most of the validation already done for you. In the next article, I will talk about data validation and serialization, creating custom endpoints and how to add pagination to your API. I would love to hear from you! You can reach me on [Twitter](https://twitter.com/WaceeraN),  [LinkedIn](https://www.linkedin.com/in/felistas-ngumi-b6063192/LinkedIn) or drop me an [email](felistaswaceera@gmail.com). Happy hacking!
 
