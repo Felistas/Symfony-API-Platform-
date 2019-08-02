@@ -10,7 +10,7 @@ In this tutorial, I will take you through how to create a simple bucket list API
 
 ## Prerequisites
 1. PHP - Version 7.0 or higher.
-2. Docker
+2. [Docker](https://docs.docker.com/compose/install/)
 3. Postgres
 
 ## Getting Started
@@ -20,7 +20,7 @@ Follow the instructions below to setup your development environment:
 $ mkdir demo-app
 $ cd demo-app
 ```
-Download the compressed `.tar.gz` distribution. Then extract it inside of our working directory and run the commands below:
+Download the latest compressed `.tar.gz` [distribution](https://github.com/api-platform/api-platform/releases). Then extract it inside of our working directory and run the commands below:
 ```
 $ cd api-platform-2.4.5
 $ docker-compose pull
