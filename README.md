@@ -1,48 +1,32 @@
-# Create a CRUD API with Symfony and API-Platform
-A simple application to illustrate how to create CRUD API's with Symfony 4 and API Platform
+# Create a CRUD API with Symfony and API-Platform (Part 2)
+A continuation on creating a CRUD API using API platform and Symfony 4
+
 ## Outline Takeaways
 1. Introduction
-2. Prerequisites
-3. Setting up API platform
-4. Design and create entities.
-5. Database setup.
-6. Add CRUD logic.
-7. Test the application.
-8. Summary.
+2. Adding a Custom Controller
+3. Pagination
+4. Implement Search Queries in the GET endpoints
+5. Serialize and deserialize data in your application
+6. Summary.
 
 ## Introduction
-Tools designed to speed up the development process of a developer really come in handy when you dont have enough time on your hands to complete your project on time.
-What if it ships with additional tools such as vanish for caching that will be useful in your app in future? This is worth a trial and that's why most developers recommend API platform for faster and better design and development of APIs.
-In this tutorial, I will take you through how to create a simple API with CRUD operations on a ToDo list. 
+Now that we have created a simple CRUD API, let's now learn how we can retrieve the data we want using query parameters, serialize and deserialize the results and paginate them for better display. Other than that, we will also add a custom controller with business logic that will suit our application.
 
-## Prerequisites
-1. PHP 7+
-2. Docker
-3. Composer
 
-## Setting Up API Platform
- - Clone the repository in the official API platform Github page
- - Pull and run API platform containers and take readers through the project structure
+## Adding a Custom Controller
+ - Other than the CRUD operatations prodived out of the box, let's add another custom CRUD endpoint with some business logic.
  
- ## Design and Create Entities
- - Create ToDo entities that will create the relevant tables for us in the database.
- - Inspect routes created
+ ## Pagination
+ - Implement pagination when retrieving huge sets of data.
  
- ## Database Setup
- - Initialize the database.
- - Load fake data into the db.
+ ## Implement Search Queries in the GET endpoints
+ - Add query parameters to our GET endpoints for custom search instances.
  
- ## Add CRUD Logic
-  -  Add logic to support the different CRUD operations in the app including data validation. i.e
-     - Add a ToDo list
-     - Get a ToDo list
-     - Edit a ToDo list
-     - Delete a ToDo list
-  ## Test The Application
-  - Run different tests on the API platform UI from the browser.
-  
+ ## Serialize and deserialize data in your application
+ - Transform PHP entities to hypermedia API responses.
+
  ## Summary
- In this tutorial we have learnt how to create a simple CRUD API with symfony 4 and API platform.
+ In this tutorial we have learnt how to customize the CRUD API we created with symfony 4 and API platform to suite our business needs.
 
 
 
