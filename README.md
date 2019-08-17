@@ -12,7 +12,7 @@ A continuation on creating a CRUD API using API platform and Symfony 4
 Now that we have created a simple CRUD API, let's now learn how we can retrieve the data we want using query parameters, serialize and deserialize the results and paginate them for better display. Other than that, we will also add a custom controller with business logic that will suit our application.
 
 
-## Adding a Custom Controller
+## Adding Custom Operations
  As we have learnt, API platform automatically creates CRUD operations from the resources created if no operation is specified. It however, also allows creation of custom operations on specific routes. There are two types operations, collection and items operations. Collection operations are operations that act on a group of resources ,e.g retrieving all bucketlists while item operations are operations that act on a single resource, e.g retrieving one bucketlist. For collection operations, the GET and POST routes are implemented with the GET operation being enabled by default. In item operations, the GET, PUT and DELETE routes are defined with the GET route enabled by default. In order to specify the default collection and items operations, add the following annotation before the class defination and refresh your browser. N/B: this can also be done using XML or YAML.
  
  ```
@@ -68,6 +68,8 @@ You should expect to see the all the item operations enabled by default as shown
 
 //insert the image here
 
+## Adding Custom URLs
+
 API platform also enables adding custom URLs to your routes and overriding the default ones. In order to do that, add the following piece of code.
 
  ```
@@ -94,6 +96,8 @@ class BucketList
 After refreshing your browser, the resulting screen should be simillar to:
 
 //insert image
+
+## Adding a Custom Controller
 
 
 
