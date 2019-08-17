@@ -6,8 +6,7 @@ A continuation on creating a CRUD API using API platform and Symfony 4
 2. Adding a Custom Controller
 3. Pagination
 4. Implement Search Queries in the GET endpoints
-5. Serialize and deserialize data in your application
-6. Summary.
+5. Summary.
 
 ## Introduction
 Now that we have created a simple CRUD API, let's now learn how we can retrieve the data we want using query parameters, serialize and deserialize the results and paginate them for better display. Other than that, we will also add a custom controller with business logic that will suit our application.
