@@ -165,7 +165,7 @@ api_platform:
  ```
  
  ## Implement Search Queries in the GET endpoints
- - Add query parameters to our GET endpoints for custom search instances.
+ 
  
  ## Serialize and deserialize data in your application
  - Transform PHP entities to hypermedia API responses.
