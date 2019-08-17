@@ -22,7 +22,6 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * ...
@@ -50,7 +49,6 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * ...
@@ -79,7 +77,6 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * ...
@@ -127,7 +124,6 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ApiResource(attributes={"pagination_enabled"=false})
@@ -138,12 +134,35 @@ class BucketList
 }
 ```
 
-Changing the number of items per page can also be made globally or for a specific resource. In order to 
+Changing the number of items per page can also be made globally or for a specific resource. In order to change the number of items per page for a particular resource, add the following annotation in your resource and refresh your browser. 
 
+```
+<?php
 
- 
- ## Pagination
- - Implement pagination when retrieving huge sets of data.
+namespace App\Entity;
+
+use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+*
+* @ApiResource(attributes={"pagination_items_per_page"=10})
+* @ORM\Entity
+*/
+class BucketList
+{ 
+  //
+}
+```
+
+For global configuration, add the following piece of code in `api/config/packages/api_platform.yaml`
+
+```
+api_platform:
+    collection:
+        pagination:
+            items_per_page: 10
+ ```
  
  ## Implement Search Queries in the GET endpoints
  - Add query parameters to our GET endpoints for custom search instances.
