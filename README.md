@@ -99,6 +99,46 @@ After refreshing your browser, the resulting screen should be simillar to:
 
 ## Adding a Custom Controller
 
+## Pagination
+API platform enables pagination by default with each collection containing 30 items per page. In my local application, I have created more than thirty bucketlist items and when I navigate to the `GET /bucket_lists` endpoint, only thirty items are displayed in the first page. The extra items will be displayed in the next page. See the image below:
+//insert image
+
+As you can see in the image above, API platform displays the total items available in your database and other page routes that have been created automatically. In order to navigate to the next page, enter the page number under `The collection page number` then click `Execute`.
+
+//insert image
+
+There are instances where one would choose to disable pagination when they have few items to display. This can be done under the file, `api/config/packages/api_platform.yaml` by adding the following few lines of code. 
+```
+api_platform:
+    collection:
+        pagination:
+            enabled: false
+```
+
+The input box for specifying the collection page number will be disabled and the resulting screen will appear as below when the `Execute` button is clicked. 
+
+//insert image
+
+Pagination can also be disabled for a particular resource by adding the following annotation in the particular resource. 
+```
+<?php
+
+namespace App\Entity;
+
+use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ApiResource(attributes={"pagination_enabled"=false})
+ */
+class BucketList
+{
+  //
+}
+```
+
+Changing the number of items per page can also be made globally or for a specific resource. In order to 
 
 
  
