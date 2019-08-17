@@ -1,16 +1,6 @@
-# Create a CRUD API with Symfony and API-Platform (Part 2)
-A continuation on creating a CRUD API using API platform and Symfony 4
-## Outline Takeaways
-1. Introduction
-2. Adding a Custom Controller
-3. Pagination
-4. Implement Search Queries in the GET endpoints
-5. Serialize and deserialize data in your application
-6. Summary.
+# Create a CRUD API with Symfony and API-Platform (Part II)
 
-## Introduction
-Now that we have created a simple CRUD API, let's now learn how we can retrieve the data we want using query parameters, serialize and deserialize the results and paginate them for better display. Other than that, we will also add a custom controller with business logic that will suit our application.
-
+Now that we have created a simple CRUD API, let's now learn how we can retrieve the data we want using query parameters, customize the pagination of the reuslts then create a custome controllers and endpoints.
 
 ## Adding Custom Operations
  As we have learnt, API platform automatically creates CRUD operations from the resources created if no operation is specified. It however, also allows creation of custom operations on specific routes. There are two types operations, collection and items operations. Collection operations are operations that act on a group of resources ,e.g retrieving all bucketlists while item operations are operations that act on a single resource, e.g retrieving one bucketlist. For collection operations, the GET and POST routes are implemented with the GET operation being enabled by default. In item operations, the GET, PUT and DELETE routes are defined with the GET route enabled by default. In order to specify the default collection and items operations, add the following annotation before the class defination and refresh your browser. N/B: this can also be done using XML or YAML.
