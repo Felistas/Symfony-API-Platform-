@@ -1,6 +1,6 @@
 # HOW TO BUILD A CRUD REST API WITH API PLATFORM AND SYMFONY 4 (Part II).
 
-Now That we have created a simple 
+Now that we have created a simple 
 [CRUD API](https://www.twilio.com/blog/build-crud-restful-api-php-api-platform-symfony-4),let's learn how we can retrieve the data we want using query parameters, customize the pagination of the response then create custom controllers and endpoints.
 
 ## Adding Custom Operations
@@ -90,7 +90,7 @@ After refreshing your browser, the resulting screen should be similar to:
 ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/custom_endpoints.png)
 
 ## Adding a Custom Controller
-API platform uses Symony routing system to register custom operations and controllers. Let's get straight into it!
+API platform uses Symfony's routing system to register custom operations and controllers. Let's get straight into it!
 Add the following code snippet in  `api/src/Controller/CustomController.php`
 
 ```
@@ -164,6 +164,7 @@ Hit the `Try out` button and click `Execute`. You should expect to see the scree
 
 ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/executeCustomController.png)
 
+You can more logic to the custom controller to suit your business needs.
 
 ## Pagination
 API platform enables pagination by default with each collection containing 30 items per page. In my local application, I have created more than thirty bucket list items and when I navigate to the `GET /bucket_lists` endpoint, only thirty items are displayed in the first page. The extra items will be displayed on the next page. 
@@ -273,11 +274,8 @@ Note the URL: ` http://localhost:8081/bucket_lists?name=Sky%20Diving&description
 The query parameters are automatically appended. The SearchFilter class supports a number of filter strategies such as:
 - `partial` searches for fields containing the text you will provide on the API client. It uses the MYSQL `LIKE %searchText%` operator. 
 - `start` searches for fields that start with the text you will provide on the API client.It uses the MYSQL `LIKE searchText%` operator. 
-- `end` searches for fileds that end with the text you will provide on the API client.It uses the MYSQL `LIKE %searchText` operator. 
+- `end` searches for fields that end with the text you will provide on the API client.It uses the MYSQL `LIKE %searchText` operator. 
 - `word_start` searched for fields containing words that start with the text provided. It uses the MYSQL `LIKE text% OR LIKE % text%` operator. 
-
-
-
 
  ## Summary
  In this tutorial we have learnt how to add custom operations and URLs on the resource we created,pagination and adding filters to our search queries. If you would like to dive deep into more API platform features you can have a look at their [documentation](https://api-platform.com/docs/core/) page. As always,I would love to hear from you! You can reach me on [Twitter](https://twitter.com/WaceeraN) or [LinkedIn](https://www.linkedin.com/in/felistas-ngumi-b6063192/LinkedIn) . Happy hacking!
