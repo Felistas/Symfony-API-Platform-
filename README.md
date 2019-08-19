@@ -158,6 +158,7 @@ class BucketListItems
 ```
 
 Once you refresh your browser, you should see the resulting screen below. 
+
 ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/CustomController.png)
 
 Hit the `Try out` button and click `Execute`. You should expect to see the screen below.
@@ -236,6 +237,7 @@ api_platform:
             items_per_page: 10
  ```
  The resulting pagination results will be as shown below (notice the created routes):
+ 
  ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/ten_items_per_page.png)
  
  ## Implement Search Queries in the GET endpoints
@@ -264,6 +266,7 @@ class BucketList
   //
 }
 ```
+
 ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/search_results.png)
 
 As you can see above, all bucket lists with the name `Sky Diving` are returned in the response. You may wish to combine filters and that can be done by adding the property name of the second filter. i.e `@ApiFilter(SearchFilter::class, properties={"name": "exact", "description": "exact"})`. The resulting filter results will be as follows:
