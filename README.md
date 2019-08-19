@@ -189,6 +189,17 @@ class BucketList
   //
 }
 ```
+//insert image
+
+As you can see above, all bucket lists with the name `Sky Diving` are returned in the response. You may wish to combine filters and that can be done by adding the property name of the second filter. i.e `@ApiFilter(SearchFilter::class, properties={"name": "exact", "description": "exact"})`. The resulting filter results will be as follows:
+// insert image.
+
+Note the URL: ` http://localhost:8081/bucket_lists?name=Sky%20Diving&description=Sky%20dive%20in%20Dubai%20with%20Keisha`
+The query parameters are automatically appended. The SearchFilter class supports a number of filter strategies such as:
+- `partial` searches for fields containing the text you will provide on the API client. It uses the MYSQL `LIKE %searchText%` operator. 
+- `start` searches for fields that start with the text you will provide on the API client.It uses the MYSQL `LIKE searchText%` operator. 
+- `end` searches for fileds that end with the text you will provide on the API client.It uses the MYSQL `LIKE %searchText` operator. 
+- `word_start` searched for fields containing words that start with the text provided. It uses the MYSQL `LIKE text% OR LIKE % text%` operator. 
 
 
 
