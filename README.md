@@ -90,6 +90,80 @@ After refreshing your browser, the resulting screen should be similar to:
 ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/custom_endpoints.png)
 
 ## Adding a Custom Controller
+API platform uses Symony routing system to register custom operations and controllers. Let's get straight into it!
+Add the following code snippet in  `api/src/Controller/CustomController.php`
+
+```
+<?php
+
+namespace App\Controller;
+
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Routing\Annotation\Route;
+
+class CustomController
+{
+    /**
+     * @Route(
+     *     name="custom_controller",
+     *     path="/customController",
+     *     methods={"GET"},
+     *     defaults={"_api_item_operation_name"="custom_controller_example"}
+     * )
+     */
+    public function __invoke()
+    {
+        return new JsonResponse('Hi there!');
+    }
+}
+```
+
+Next, we need to create an Entity that will use the custom controller. 
+
+```
+<?php
+
+namespace App\Entity;
+
+use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\ORM\Mapping as ORM;
+use App\Controller\CustomController;
+
+
+/**
+ * @ApiResource(
+ *     itemOperations={
+ *         "custom_controller_example"={
+ *             "route_name"="custom_controller",
+ *             "swagger_context"={
+ *                  "parameters"={}
+ *              }
+ *         }
+ *     },
+ *    collectionOperations ={}
+ * )
+ * @ORM\Entity
+ */
+class BucketListItems
+{
+    /**
+     * @var int The id of a bucketlist.
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
+    private $id;
+}
+```
+
+Once you refresh your browser, you should see the resulting screen below. 
+//insert image
+
+Hit the `Try out` button and click `Execute`. You should expect to see the screen below.
+
+//insert image
+
 
 ## Pagination
 API platform enables pagination by default with each collection containing 30 items per page. In my local application, I have created more than thirty bucket list items and when I navigate to the `GET /bucket_lists` endpoint, only thirty items are displayed in the first page. The extra items will be displayed on the next page. 
