@@ -158,11 +158,11 @@ class BucketListItems
 ```
 
 Once you refresh your browser, you should see the resulting screen below. 
-//insert image
+![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/CustomController.png)
 
 Hit the `Try out` button and click `Execute`. You should expect to see the screen below.
 
-//insert image
+![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/executeCustomController.png)
 
 
 ## Pagination
