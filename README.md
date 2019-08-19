@@ -1,9 +1,10 @@
 # Create a CRUD API with Symfony and API-Platform (Part II)
 
-Now that we have created a simple [CRUD API](https://www.twilio.com/blog/build-crud-restful-api-php-api-platform-symfony-4), let's learn how we can retrieve the data we want using query parameters, customize the pagination of the response then create custom controllers and endpoints.
+Now That we have created a simple 
+[CRUD API](https://www.twilio.com/blog/build-crud-restful-api-php-api-platform-symfony-4),let's learn how we can retrieve the data we want using query parameters, customize the pagination of the response then create custom controllers and endpoints.
 
 ## Adding Custom Operations
- As we have learnt, API platform automatically creates CRUD operations from the resources created if no operation is specified. It however, also allows creation of custom operations on specific routes. There are two types operations, collection and items operations. Collection operations are operations that act on a group of resources ,e.g retrieving all bucketlists while item operations are operations that act on a single resource, e.g retrieving one bucketlist. For collection operations, the GET and POST routes are defined with the GET operation being enabled by default. In item operations, the GET, PUT and DELETE routes are defined with the GET route enabled by default. In order to specify the default collection and items operations, add the following annotation before the class defination and refresh your browser.
+ As we have learnt, API platform automatically creates CRUD operations from the resources created if no operation is specified. It however, also allows creation of custom operations on specific routes. There are two types of operations, collection and items operations. Collection operations are operations that act on a group of resources ,e.g retrieving all bucket lists while item operations are operations that act on a single resource, e.g retrieving one bucket list. For collection operations, the GET and POST routes are defined with the GET operation being enabled by default. In item operations, the GET, PUT and DELETE routes are defined with the GET route enabled by default. In order to specify the default collection and items operations, add the following annotation before the class definition and refresh your browser.
  
  N/B: this can also be done using XML or YAML.
  
@@ -56,7 +57,7 @@ class BucketList
 }
 ```
 
-You should expect to see the all the item operations enabled by default as shown in the image below:
+You should expect to see all the item operations enabled by default as shown in the image below:
 
 ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/collection_get_operation_annotation.png)
 
@@ -84,14 +85,14 @@ class BucketList
   //...
 }
 ```
-After refreshing your browser, the resulting screen should be simillar to:
+After refreshing your browser, the resulting screen should be similar to:
 
 ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/custom_endpoints.png)
 
 ## Adding a Custom Controller
 
 ## Pagination
-API platform enables pagination by default with each collection containing 30 items per page. In my local application, I have created more than thirty bucketlist items and when I navigate to the `GET /bucket_lists` endpoint, only thirty items are displayed in the first page. The extra items will be displayed in the next page. 
+API platform enables pagination by default with each collection containing 30 items per page. In my local application, I have created more than thirty bucket list items and when I navigate to the `GET /bucket_lists` endpoint, only thirty items are displayed in the first page. The extra items will be displayed on the next page. 
 See the image below:
 
 ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/first_thirty_items.png)
@@ -167,7 +168,8 @@ api_platform:
 
 
  ## Summary
- In this tutorial we have learnt how to customize the CRUD API we created with symfony 4 and API platform to suite our business needs.
+ In this tutorial we have learnt how to customize the CRUD API we created with symfony 4 and API platform to suit our business needs.
+
 
 
 
