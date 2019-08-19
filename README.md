@@ -16,7 +16,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ...
+ *
  * @ApiResource(
  *     collectionOperations={"get"},
  *     itemOperations={"get"}
@@ -45,7 +45,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ...
+ * 
  * @ApiResource(
  *     collectionOperations={"get"}
  * )
@@ -73,7 +73,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ...
+ * 
  * @ApiResource(
  *     collectionOperations={"get" ={"path"="/customCollectionBucketListEndPoint"}},
  *     itemOperations={"get" ={"path"="/customItemBucketListEndPoint"}}
