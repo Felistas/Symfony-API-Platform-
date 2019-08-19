@@ -263,10 +263,11 @@ class BucketList
   //
 }
 ```
-//insert image
+![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/search_results.png)
 
 As you can see above, all bucket lists with the name `Sky Diving` are returned in the response. You may wish to combine filters and that can be done by adding the property name of the second filter. i.e `@ApiFilter(SearchFilter::class, properties={"name": "exact", "description": "exact"})`. The resulting filter results will be as follows:
-// insert image.
+
+![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/combined_filters.png)
 
 Note the URL: ` http://localhost:8081/bucket_lists?name=Sky%20Diving&description=Sky%20dive%20in%20Dubai%20with%20Keisha`
 The query parameters are automatically appended. The SearchFilter class supports a number of filter strategies such as:
