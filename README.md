@@ -205,7 +205,7 @@ The query parameters are automatically appended. The SearchFilter class supports
 
 
  ## Summary
- In this tutorial we have learnt how to customize the CRUD API we created with symfony 4 and API platform to suit our business needs.
+ In this tutorial we have learnt how to add custom operations and URLs on the resource we created,pagination and adding filters to our search queries. If you would like to dive deep into more API platform features you can have a look at their [documentation](https://api-platform.com/docs/core/) page. As always,I would love to hear from you! You can reach me on [Twitter](https://twitter.com/WaceeraN) or [LinkedIn](https://www.linkedin.com/in/felistas-ngumi-b6063192/LinkedIn) . Happy hacking!
 
 
 
