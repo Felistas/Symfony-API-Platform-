@@ -1,4 +1,4 @@
-# Create a CRUD API with Symfony and API-Platform (Part II)
+# HOW TO BUILD A CRUD REST API WITH API PLATFORM AND SYMFONY 4 (Part II).
 
 Now That we have created a simple 
 [CRUD API](https://www.twilio.com/blog/build-crud-restful-api-php-api-platform-symfony-4),let's learn how we can retrieve the data we want using query parameters, customize the pagination of the response then create custom controllers and endpoints.
