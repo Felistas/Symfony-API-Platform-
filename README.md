@@ -28,7 +28,9 @@ class BucketList
 }
 ```
 Your routes should now appear as shown below:
-//upload the picture here
+
+![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/both_collection_and_item_operations.png)
+
 
 This will make the resource ReadOnly. If you want to add the POST endpoint on the collectionOperations, customize the `collectionOperations` to  `collectionOperations={"get", "post"}`. The same can also be applied to the itemOperations to enable the PUT and DELETE endpoints. 
 
@@ -56,7 +58,7 @@ class BucketList
 
 You should expect to see the all the item operations enabled by default as shown in the image below:
 
-//insert the image here
+![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/collection_get_operation_annotation.png)
 
 ## Adding Custom URLs
 
