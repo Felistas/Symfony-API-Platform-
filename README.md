@@ -164,7 +164,33 @@ api_platform:
  ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/ten_items_per_page.png)
  
  ## Implement Search Queries in the GET endpoints
- API platform already provides a way of applying filters to collections so you don't have to write a custom endpoint for filters unless you really have to.  
+ API platform already provides a way of applying filters to collections so you don't have to write a custom endpoint for filters unless you really have to. For example if we want to filter by name in our API, add the following annotation and refresh your browser.
+
+```
+<?php
+
+namespace App\Entity;
+
+use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+
+
+/**
+*
+* @ApiResource()
+* @ApiFilter(SearchFilter::class, properties={"name": "exact"})
+* @ORM\Entity
+*/
+class BucketList
+{
+  //
+}
+```
+
+
 
 
  ## Summary
