@@ -1,9 +1,11 @@
 # Create a CRUD API with Symfony and API-Platform (Part II)
 
-Now that we have created a simple CRUD API, let's now learn how we can retrieve the data we want using query parameters, customize the pagination of the reuslts then create custom controllers and endpoints.
+Now that we have created a simple [CRUD API](https://www.twilio.com/blog/build-crud-restful-api-php-api-platform-symfony-4), let's learn how we can retrieve the data we want using query parameters, customize the pagination of the response then create custom controllers and endpoints.
 
 ## Adding Custom Operations
- As we have learnt, API platform automatically creates CRUD operations from the resources created if no operation is specified. It however, also allows creation of custom operations on specific routes. There are two types operations, collection and items operations. Collection operations are operations that act on a group of resources ,e.g retrieving all bucketlists while item operations are operations that act on a single resource, e.g retrieving one bucketlist. For collection operations, the GET and POST routes are implemented with the GET operation being enabled by default. In item operations, the GET, PUT and DELETE routes are defined with the GET route enabled by default. In order to specify the default collection and items operations, add the following annotation before the class defination and refresh your browser. N/B: this can also be done using XML or YAML.
+ As we have learnt, API platform automatically creates CRUD operations from the resources created if no operation is specified. It however, also allows creation of custom operations on specific routes. There are two types operations, collection and items operations. Collection operations are operations that act on a group of resources ,e.g retrieving all bucketlists while item operations are operations that act on a single resource, e.g retrieving one bucketlist. For collection operations, the GET and POST routes are defined with the GET operation being enabled by default. In item operations, the GET, PUT and DELETE routes are defined with the GET route enabled by default. In order to specify the default collection and items operations, add the following annotation before the class defination and refresh your browser.
+ 
+ N/B: this can also be done using XML or YAML.
  
  ```
 <?php
