@@ -4,11 +4,11 @@ Now that we have created a simple
 [CRUD API](https://www.twilio.com/blog/build-crud-restful-api-php-api-platform-symfony-4),let's learn how we can retrieve the data we want using query parameters, customize the pagination of the response then create custom controllers and endpoints.
 
 ## Adding Custom Operations
- As we have learnt, API platform automatically creates CRUD operations from the resources created if no operation is specified. It however, also allows creation of custom operations on specific routes. There are two types of operations, collection and items operations. Collection operations are operations that act on a group of resources ,e.g retrieving all bucket lists while item operations are operations that act on a single resource, e.g retrieving one bucket list. For collection operations, the GET and POST routes are defined with the GET operation being enabled by default. In item operations, the GET, PUT and DELETE routes are defined with the GET route enabled by default. In order to specify the default collection and items operations, add the following annotation before the class definition and refresh your browser.
+API platform automatically creates CRUD operations when the resource is created. Custom operations can be assigned to specific routes if a operation is specified. There are two types operations for collections and items. Collection operations are operations that act on a group of resources such as retrieving all bucketlists. Item operations are operations that act on a single resource such as retrieving one bucketlist. For collection operations, the `GET` and `POST` routes are implemented with the `GET` operation being enabled by default. In item operations, the `GET`, `PUT`, and `DELETE` routes are defined with the `GET` route enabled by default. In order to specify the default collection and items operations, add the following annotation before the class definition and refresh your browser. This change will take place in `api/src/Entity/BucketList.php`.
+
+**Note:** _This can also be done using XML or YAML._
  
- N/B: this can also be done using XML or YAML.
- 
- ```
+```php
 <?php
 
 namespace App\Entity;
@@ -32,12 +32,11 @@ Your routes should now appear as shown below:
 
 ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/both_collection_and_item_operations.png)
 
+This will make the resource ReadOnly. If you want to add the POST endpoint on the collectionOperations, change the `collectionOperations` to `collectionOperations={"get", "post"}`. The same can also be applied to the itemOperations to enable the PUT and DELETE endpoints. 
 
-This will make the resource ReadOnly. If you want to add the POST endpoint on the collectionOperations, customize the `collectionOperations` to  `collectionOperations={"get", "post"}`. The same can also be applied to the itemOperations to enable the PUT and DELETE endpoints. 
+Both item and collection operations work independently. This means that if the collection operations are configured and the item operations are not, the GET, PUT and DELETE operations will be automatically configured and vice versa. For instance, add the following piece of code:
 
-Note: Both item and collection operations work independently. This means that if the collection operations are configured and the item operations are not, the GET, PUT and DELETE operations will be automatically configured and vice versa. For instance, add the following piece of code:
-
- ```
+```php
 <?php
 
 namespace App\Entity;
