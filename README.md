@@ -90,10 +90,11 @@ After refreshing your browser, the resulting screen should be similar to:
 ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/custom_endpoints.png)
 
 ## Adding a Custom Controller
-API platform uses Symfony's routing system to register custom operations and controllers. Let's get straight into it!
-Add the following code snippet in  `api/src/Controller/CustomController.php`
+API Platform uses Symfony's routing system to register custom operations and controllers. We'll need to first create the controller at `api/src/Controller/CustomController.php`. 
 
-```
+Add the following code snippet in  
+
+```php
 <?php
 
 namespace App\Controller;
@@ -118,9 +119,9 @@ class CustomController
 }
 ```
 
-Next, we need to create an Entity that will use the custom controller. 
+Next, we need to create an Entity that will use the custom controller. Create the file `api/src/Entity/BucketListItems.php` and add the following code.
 
-```
+```php
 <?php
 
 namespace App\Entity;
@@ -157,6 +158,8 @@ class BucketListItems
 }
 ```
 
+To generate the new models in the database, run the following command run `docker-compose exec php bin/console doctrine:schema:update --force`.
+
 Once you refresh your browser, you should see the resulting screen below. 
 
 ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/CustomController.png)
@@ -165,7 +168,7 @@ Hit the `Try out` button and click `Execute`. You should expect to see the scree
 
 ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/executeCustomController.png)
 
-You can more logic to the custom controller to suit your business needs.
+You can add more logic to the custom controller to suit your business needs.
 
 ## Pagination
 API platform enables pagination by default with each collection containing 30 items per page. In my local application, I have created more than thirty bucket list items and when I navigate to the `GET /bucket_lists` endpoint, only thirty items are displayed in the first page. The extra items will be displayed on the next page. 
