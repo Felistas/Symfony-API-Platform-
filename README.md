@@ -63,9 +63,9 @@ You should expect to see all the item operations enabled by default as shown in 
 
 ## Adding Custom URLs
 
-API platform also enables adding custom URLs to your routes and overriding the default ones. In order to do that, add the following piece of code.
+API Platform also enables adding custom URLs to your routes and overriding the default ones. In order to do that, add the following piece of code.
 
- ```
+```php
 <?php
 
 namespace App\Entity;
