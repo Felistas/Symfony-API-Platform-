@@ -1,7 +1,6 @@
 # HOW TO BUILD A CRUD REST API WITH API PLATFORM AND SYMFONY 4 (Part II).
 
-Now that we have created a simple 
-[CRUD API](https://www.twilio.com/blog/build-crud-restful-api-php-api-platform-symfony-4),let's learn how we can retrieve the data we want using query parameters, customize the pagination of the response then create custom controllers and endpoints.
+Now that we have created a simple [CRUD API](https://www.twilio.com/blog/build-crud-restful-api-php-api-platform-symfony-4), let's learn how to retrieve the data we want using query parameters, customize the pagination of the reuslts, then create custom controllers and endpoints.
 
 ## Adding Custom Operations
  As we have learnt, API platform automatically creates CRUD operations from the resources created if no operation is specified. It however, also allows creation of custom operations on specific routes. There are two types of operations, collection and items operations. Collection operations are operations that act on a group of resources ,e.g retrieving all bucket lists while item operations are operations that act on a single resource, e.g retrieving one bucket list. For collection operations, the GET and POST routes are defined with the GET operation being enabled by default. In item operations, the GET, PUT and DELETE routes are defined with the GET route enabled by default. In order to specify the default collection and items operations, add the following annotation before the class definition and refresh your browser.
