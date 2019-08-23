@@ -244,9 +244,9 @@ api_platform:
  ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/ten_items_per_page.png)
  
  ## Implement Search Queries in the GET endpoints
- API platform already provides a way of applying filters to collections so you don't have to write a custom endpoint for filters unless you really have to. For example if we want to filter by name in our API, add the following annotation and refresh your browser.
+ It's not necessary to write custom endpoints for filtering as API Platform provides support out of the box. If we want to filter by name in our API for example, add the following annotation and refresh your browser.
 
-```
+```php
 <?php
 
 namespace App\Entity;
@@ -256,7 +256,6 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
-
 
 /**
 *
@@ -272,11 +271,14 @@ class BucketList
 
 ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/search_results.png)
 
-As you can see above, all bucket lists with the name `Sky Diving` are returned in the response. You may wish to combine filters and that can be done by adding the property name of the second filter. i.e `@ApiFilter(SearchFilter::class, properties={"name": "exact", "description": "exact"})`. The resulting filter results will be as follows:
+As you can see above, all bucket lists with the name `Sky Diving` are returned in the response. Responses can be further customized by combining filters. Simply add the property name of the second filter. i.e `@ApiFilter(SearchFilter::class, properties={"name": "exact", "description": "exact"})`.
+
+The resulting, filtered set will be as follows:
 
 ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/combined_filters.png)
 
 Note the URL: ` http://localhost:8081/bucket_lists?name=Sky%20Diving&description=Sky%20dive%20in%20Dubai%20with%20Keisha`
+
 The query parameters are automatically appended. The SearchFilter class supports a number of filter strategies such as:
 - `partial` searches for fields containing the text you will provide on the API client. It uses the MYSQL `LIKE %searchText%` operator. 
 - `start` searches for fields that start with the text you will provide on the API client.It uses the MYSQL `LIKE searchText%` operator. 
@@ -284,7 +286,7 @@ The query parameters are automatically appended. The SearchFilter class supports
 - `word_start` searched for fields containing words that start with the text provided. It uses the MYSQL `LIKE text% OR LIKE % text%` operator. 
 
  ## Summary
- In this tutorial we have learnt how to add custom operations and URLs on the resource we created,pagination and adding filters to our search queries. If you would like to dive deep into more API platform features you can have a look at their [documentation](https://api-platform.com/docs/core/) page. As always,I would love to hear from you! You can reach me on [Twitter](https://twitter.com/WaceeraN) or [LinkedIn](https://www.linkedin.com/in/felistas-ngumi-b6063192/LinkedIn) . Happy hacking!
+ In this tutorial we have learned how to add custom operations and URLs on the resource we created,pagination, and filters to our search queries. If you would like to dive deep into more API platform features you can have a look at their [documentation](https://api-platform.com/docs/core/) page. As always, I would love to hear from you! You can reach me on [Twitter](https://twitter.com/WaceeraN) or [LinkedIn](https://www.linkedin.com/in/felistas-ngumi-b6063192/LinkedIn) . Happy hacking!
 
 
 
