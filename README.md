@@ -168,16 +168,17 @@ Hit the `Try out` button and click `Execute`. You should expect to see the scree
 
 You can add more logic to the custom controller to suit your business needs.
 
-## Pagination
-API platform enables pagination by default with each collection containing 30 items per page. In my local application, I have created more than thirty bucket list items and when I navigate to the `GET /bucket_lists` endpoint, only thirty items are displayed in the first page. The extra items will be displayed on the next page. 
-See the image below:
+## Enabling Pagination for Resources
+API Platform enables pagination by default with each collection containing 30 items per page. The example below shows a bucket list with thirty (30) items inside. Navigating to the `GET /bucket_lists` endpoint reveals only thirty items on the first page. The extra items are to be displayed on the next page.
 
 ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/first_thirty_items.png)
-As you can see in the image above, API platform displays the total items available in your database and other page routes that have been created automatically. In order to navigate to the next page, enter the page number under `The collection page number` then click `Execute`.
+
+API platform displays the total items available in your database and other page routes that have been created automatically. Enter the page number under `The collection page number`, then click `Execute` to navigate to the next page.
 
 ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/second_route.png)
 
-There are instances where one would choose to disable pagination when they have few items to display. This can be done under the file, `api/config/packages/api_platform.yaml` by adding the following few lines of code. 
+There are some instances where pagination should be disabled, such as having too few items to display. In these instances add the following lines of code to `api/config/packages/api_platform.yaml`.
+
 ```
 api_platform:
     collection:
@@ -189,9 +190,9 @@ The input box for specifying the collection page number will be disabled and the
 
 ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/no_pagination.png)
 
-Pagination can also be disabled for a particular resource by adding the following annotation in the particular resource. 
+Pagination can also be disabled for a resource by adding the following annotation in the related entity class.
 
-```
+```php
 <?php
 
 namespace App\Entity;
@@ -208,9 +209,9 @@ class BucketList
 }
 ```
 
-Changing the number of items per page can also be made globally or for a specific resource. In order to change the number of items per page for a particular resource, add the following annotation in your resource and refresh your browser. 
+Changing the number of items per page can be made globally or for a specific resource. Add the following annotation in your resource and refresh your browser to change the number of items per page. 
 
-```
+```php
 <?php
 
 namespace App\Entity;
@@ -229,7 +230,7 @@ class BucketList
 }
 ```
 
-For global configuration, add the following piece of code in `api/config/packages/api_platform.yaml`
+Add the following piece of code in `api/config/packages/api_platform.yaml` to globally modify pagination for all resources.
 
 ```
 api_platform:
@@ -237,7 +238,8 @@ api_platform:
         pagination:
             items_per_page: 10
  ```
- The resulting pagination results will be as shown below (notice the created routes):
+
+ The resulting pagination results will be as shown below:
  
  ![Api platform dashboard](https://github.com/Felistas/Symfony-API-Platform-/blob/Part-2/ten_items_per_page.png)
  
